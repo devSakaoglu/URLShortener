@@ -2,7 +2,7 @@ namespace URLShortener.Shared.Entities;
 
 public class Visit : BaseEntity<long>
 {
-    public String IpAddress { get; set; }
-    public String Country { get; set; }
-    public String City { get; set; }
+    public string IpAddress { get; set; }
+    public string Country { get; set; }
+    public string City { get; set; }
 }
