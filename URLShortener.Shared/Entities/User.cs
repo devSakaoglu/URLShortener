@@ -1,11 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Principal;
 using URLShortener.Shared.Enums;
-
+using Microsoft.AspNetCore.Identity;
 namespace URLShortener.Shared.Entities;
-public class User : BaseEntity<Guid>
+public class User : IdentityUser<Guid> 
 {
-    public UserType Type { get; set; }
     public List<Link> Links { get; set; }
 }
 
