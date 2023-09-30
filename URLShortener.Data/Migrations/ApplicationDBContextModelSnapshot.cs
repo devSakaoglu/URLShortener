@@ -144,7 +144,7 @@ namespace URLShortener.Data.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("UserId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -340,7 +340,9 @@ namespace URLShortener.Data.Migrations
                 {
                     b.HasOne("URLShortener.Domain.Entities.User", null)
                         .WithMany("Links")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("URLShortener.Domain.Entities.User", b =>
