@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace URLShortener.Shared.Entities;
+namespace URLShortener.Domain.Entities;
 
 public class Link: BaseEntity<long>
 {
