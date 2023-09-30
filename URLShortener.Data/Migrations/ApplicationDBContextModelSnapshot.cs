@@ -116,7 +116,7 @@ namespace URLShortener.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("URLShortener.Shared.Entities.Link", b =>
+            modelBuilder.Entity("URLShortener.Domain.Entities.Link", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -154,7 +154,7 @@ namespace URLShortener.Data.Migrations
                     b.ToTable("Links");
                 });
 
-            modelBuilder.Entity("URLShortener.Shared.Entities.User", b =>
+            modelBuilder.Entity("URLShortener.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -224,7 +224,7 @@ namespace URLShortener.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("URLShortener.Shared.Entities.Visit", b =>
+            modelBuilder.Entity("URLShortener.Domain.Entities.Visit", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -255,7 +255,7 @@ namespace URLShortener.Data.Migrations
                     b.ToTable("Visits");
                 });
 
-            modelBuilder.Entity("URLShortener.Shared.Identity.ApplicationRole", b =>
+            modelBuilder.Entity("URLShortener.Domain.Identity.ApplicationRole", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -287,7 +287,7 @@ namespace URLShortener.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
-                    b.HasOne("URLShortener.Shared.Identity.ApplicationRole", null)
+                    b.HasOne("URLShortener.Domain.Identity.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -296,7 +296,7 @@ namespace URLShortener.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("URLShortener.Shared.Entities.User", null)
+                    b.HasOne("URLShortener.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -305,7 +305,7 @@ namespace URLShortener.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("URLShortener.Shared.Entities.User", null)
+                    b.HasOne("URLShortener.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -314,13 +314,13 @@ namespace URLShortener.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.HasOne("URLShortener.Shared.Identity.ApplicationRole", null)
+                    b.HasOne("URLShortener.Domain.Identity.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("URLShortener.Shared.Entities.User", null)
+                    b.HasOne("URLShortener.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -329,42 +329,42 @@ namespace URLShortener.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("URLShortener.Shared.Entities.User", null)
+                    b.HasOne("URLShortener.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("URLShortener.Shared.Entities.Link", b =>
+            modelBuilder.Entity("URLShortener.Domain.Entities.Link", b =>
                 {
-                    b.HasOne("URLShortener.Shared.Entities.User", null)
+                    b.HasOne("URLShortener.Domain.Entities.User", null)
                         .WithMany("Links")
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("URLShortener.Shared.Entities.User", b =>
+            modelBuilder.Entity("URLShortener.Domain.Entities.User", b =>
                 {
-                    b.HasOne("URLShortener.Shared.Identity.ApplicationRole", "ApplicationRole")
+                    b.HasOne("URLShortener.Domain.Identity.ApplicationRole", "ApplicationRole")
                         .WithMany()
                         .HasForeignKey("ApplicationRoleId");
 
                     b.Navigation("ApplicationRole");
                 });
 
-            modelBuilder.Entity("URLShortener.Shared.Entities.Visit", b =>
+            modelBuilder.Entity("URLShortener.Domain.Entities.Visit", b =>
                 {
-                    b.HasOne("URLShortener.Shared.Entities.Link", null)
+                    b.HasOne("URLShortener.Domain.Entities.Link", null)
                         .WithMany("Visits")
                         .HasForeignKey("LinkId");
                 });
 
-            modelBuilder.Entity("URLShortener.Shared.Entities.Link", b =>
+            modelBuilder.Entity("URLShortener.Domain.Entities.Link", b =>
                 {
                     b.Navigation("Visits");
                 });
 
-            modelBuilder.Entity("URLShortener.Shared.Entities.User", b =>
+            modelBuilder.Entity("URLShortener.Domain.Entities.User", b =>
                 {
                     b.Navigation("Links");
                 });

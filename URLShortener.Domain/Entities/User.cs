@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
-using URLShortener.Shared.Identity;
+using URLShortener.Domain.Identity;
 
-namespace URLShortener.Shared.Entities;
+namespace URLShortener.Domain.Entities;
 public class User : IdentityUser<Guid> 
 {
     public List<Link> Links { get; set; }

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace URLShortener.Shared.Entities;
+namespace URLShortener.Domain.Entities;
 
 public abstract class BaseEntity<T>
 {

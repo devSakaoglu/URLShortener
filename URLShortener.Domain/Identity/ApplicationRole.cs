@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
-using URLShortener.Shared.Enums;
+using URLShortener.Domain.Enums;
 
-namespace URLShortener.Shared.Identity;
+namespace URLShortener.Domain.Identity;
 public class ApplicationRole : IdentityRole<Guid>
 {
     public UserType UserType { get; set; } = UserType.User;
