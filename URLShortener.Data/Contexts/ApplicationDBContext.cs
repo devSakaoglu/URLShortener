@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using URLShortener.Shared.Entities;
-using URLShortener.Shared.Identity;
+using URLShortener.Domain.Entities;
+using URLShortener.Domain.Identity;
 
 namespace URLShortener.Data.Contexts;
 

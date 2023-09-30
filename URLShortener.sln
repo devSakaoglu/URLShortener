@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Shared", "URLShortener.Shared\URLShortener.Shared.csproj", "{AAA29F90-F84F-4239-AD35-E4864E829216}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Domain", "URLShortener.Domain\URLShortener.Domain.csproj", "{AAA29F90-F84F-4239-AD35-E4864E829216}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Data", "URLShortener.Data\URLShortener.Data.csproj", "{15B8DC3A-053F-4994-8869-9C40A6C4994F}"
 EndProject

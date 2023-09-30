@@ -1,4 +1,4 @@
-namespace URLShortener.Shared.Enums;
+namespace URLShortener.Domain.Enums;
 
 public enum UserType: byte
 {
