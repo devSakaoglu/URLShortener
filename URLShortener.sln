@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Shared", "URLS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Data", "URLShortener.Data\URLShortener.Data.csproj", "{15B8DC3A-053F-4994-8869-9C40A6C4994F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Tests", "URLShortener.Tests\URLShortener.Tests.csproj", "{6EF5E0A1-7DD5-44ED-8883-A82CD02C2526}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Services", "URLShortener.Services\URLShortener.Services.csproj", "{1EE1BFAF-5337-4AF1-8D3A-C49529626E31}"
 EndProject
 Global
@@ -20,6 +22,10 @@ Global
 		{15B8DC3A-053F-4994-8869-9C40A6C4994F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15B8DC3A-053F-4994-8869-9C40A6C4994F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15B8DC3A-053F-4994-8869-9C40A6C4994F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EF5E0A1-7DD5-44ED-8883-A82CD02C2526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF5E0A1-7DD5-44ED-8883-A82CD02C2526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF5E0A1-7DD5-44ED-8883-A82CD02C2526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF5E0A1-7DD5-44ED-8883-A82CD02C2526}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1EE1BFAF-5337-4AF1-8D3A-C49529626E31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1EE1BFAF-5337-4AF1-8D3A-C49529626E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EE1BFAF-5337-4AF1-8D3A-C49529626E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
