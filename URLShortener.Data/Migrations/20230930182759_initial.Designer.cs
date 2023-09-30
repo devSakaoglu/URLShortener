@@ -11,8 +11,8 @@ using URLShortener.Data.Contexts;
 namespace URLShortener.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230929192506_Initial")]
-    partial class Initial
+    [Migration("20230930182759_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -147,7 +147,7 @@ namespace URLShortener.Data.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("UserId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -165,6 +165,9 @@ namespace URLShortener.Data.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
+
+                    b.Property<Guid?>("ApplicationRoleId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -211,6 +214,8 @@ namespace URLShortener.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationRoleId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -338,7 +343,18 @@ namespace URLShortener.Data.Migrations
                 {
                     b.HasOne("URLShortener.Domain.Entities.User", null)
                         .WithMany("Links")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("URLShortener.Domain.Entities.User", b =>
+                {
+                    b.HasOne("URLShortener.Domain.Identity.ApplicationRole", "ApplicationRole")
+                        .WithMany()
+                        .HasForeignKey("ApplicationRoleId");
+
+                    b.Navigation("ApplicationRole");
                 });
 
             modelBuilder.Entity("URLShortener.Domain.Entities.Visit", b =>
