@@ -11,4 +11,5 @@ public class Link: BaseEntity<long>
     public DateTime? DeletedDate { get; set; }
     public bool IsEnabled { get; set; }
     public List<Visit> Visits { get; set; }
+    public Guid UserId { get; set; }
 }
