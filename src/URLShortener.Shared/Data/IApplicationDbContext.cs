@@ -8,5 +8,5 @@ public interface IApplicationDbContext
     DbSet<Link> Links { get; }
     DbSet<Visit> Visits { get; }
 
-    Task SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+    Task SaveChangesAsync(CancellationToken cancellationToken = default);
 }

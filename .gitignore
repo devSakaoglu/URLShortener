@@ -14,7 +14,6 @@
 *.sig
 
 pkg/
-src/
 
 ### DotnetCore ###
 # .NET Core build folders

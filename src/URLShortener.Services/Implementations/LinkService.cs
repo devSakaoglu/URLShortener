@@ -17,7 +17,7 @@ public class LinkService : ILinkService
 
     public async Task<Link> CreateAsync(CreateLinkModel model)
     {
-        var link = new Link()
+        var link = new Link
         {
             ShortAddress = model.ShortAddress,
             FullAddress = model.FullAddress,
@@ -61,10 +61,7 @@ public class LinkService : ILinkService
     public async Task<Link> GetByIdAsync(GetByIdModel model, bool includeVisits = false)
     {
         var query = _context.Links.AsQueryable();
-        if (includeVisits)
-        {
-            query = query.Include(l => l.Visits);
-        }
+        if (includeVisits) query = query.Include(l => l.Visits);
 
         return await query
             .Where(l => l.UserId == model.UserId)

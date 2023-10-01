@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Domain", "URLShortener.Domain\URLShortener.Domain.csproj", "{AAA29F90-F84F-4239-AD35-E4864E829216}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Domain", "src\URLShortener.Domain\URLShortener.Domain.csproj", "{AAA29F90-F84F-4239-AD35-E4864E829216}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Data", "URLShortener.Data\URLShortener.Data.csproj", "{15B8DC3A-053F-4994-8869-9C40A6C4994F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Data", "src\URLShortener.Data\URLShortener.Data.csproj", "{15B8DC3A-053F-4994-8869-9C40A6C4994F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.UnitTests", "URLShortener.UnitTests\URLShortener.UnitTests.csproj", "{6EF5E0A1-7DD5-44ED-8883-A82CD02C2526}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.UnitTests", "tests\URLShortener.UnitTests\URLShortener.UnitTests.csproj", "{6EF5E0A1-7DD5-44ED-8883-A82CD02C2526}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Services", "URLShortener.Services\URLShortener.Services.csproj", "{1EE1BFAF-5337-4AF1-8D3A-C49529626E31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Services", "src\URLShortener.Services\URLShortener.Services.csproj", "{1EE1BFAF-5337-4AF1-8D3A-C49529626E31}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9307764D-0D6B-486F-8CA9-D8D360454C53}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{13919973-0B60-4573-8B99-808CF13403F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Shared", "URLShortener.Shared\URLShortener.Shared.csproj", "{B35A9EB4-F1BC-40B9-98C5-1D161453A07B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Shared", "src\URLShortener.Shared\URLShortener.Shared.csproj", "{B35A9EB4-F1BC-40B9-98C5-1D161453A07B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

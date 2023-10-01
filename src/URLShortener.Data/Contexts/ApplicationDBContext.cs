@@ -6,11 +6,12 @@ using URLShortener.Shared.Data;
 
 namespace URLShortener.Data.Contexts;
 
-public class ApplicationDbContext: IdentityDbContext<User, ApplicationRole, Guid>, IApplicationDbContext
+public class ApplicationDbContext : IdentityDbContext<User, ApplicationRole, Guid>, IApplicationDbContext
 {
     public DbSet<Link> Links { get; set; }
     public DbSet<Visit> Visits { get; set; }
-    public new async Task SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+
+    public new async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await base.SaveChangesAsync(cancellationToken);
     }
