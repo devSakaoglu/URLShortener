@@ -1,7 +1,7 @@
 using URLShortener.Domain.Entities;
 using URLShortener.Shared.Models.Link;
 
-namespace URLShortener.Services.Interfaces;
+namespace URLShortener.Shared.Services.Interfaces;
 
 public interface ILinkService
 {

@@ -1,16 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using URLShortener.Data.Contexts;
 using URLShortener.Domain.Entities;
-using URLShortener.Services.Interfaces;
+using URLShortener.Shared.Data;
 using URLShortener.Shared.Models.Link;
+using URLShortener.Shared.Services.Interfaces;
 
 namespace URLShortener.Services.Implementations;
 
 public class LinkService : ILinkService
 {
-    private readonly ApplicationDBContext _context;
+    private readonly IApplicationDbContext _context;
 
-    public LinkService(ApplicationDBContext context)
+    public LinkService(IApplicationDbContext context)
     {
         _context = context;
     }
