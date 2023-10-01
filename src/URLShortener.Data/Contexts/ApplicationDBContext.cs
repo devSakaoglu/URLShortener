@@ -8,6 +8,9 @@ namespace URLShortener.Data.Contexts;
 
 public class ApplicationDbContext : IdentityDbContext<User, ApplicationRole, Guid>, IApplicationDbContext
 {
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
+    public new DbSet<User> Users { get; set; }
     public DbSet<Link> Links { get; set; }
     public DbSet<Visit> Visits { get; set; }
 
@@ -16,8 +19,8 @@ public class ApplicationDbContext : IdentityDbContext<User, ApplicationRole, Gui
         await base.SaveChangesAsync(cancellationToken);
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public new void SaveChanges()
     {
-        optionsBuilder.UseSqlite("Data Source=urlshortener.db");
+        base.SaveChanges();
     }
 }

@@ -9,7 +9,7 @@ public class Link : BaseEntity<long>
     public string FullAddress { get; set; }
     public DateTime? ModifiedDate { get; set; }
     public DateTime? DeletedDate { get; set; }
-    public bool IsEnabled { get; set; }
+    public bool IsEnabled { get; set; } = true;
     public List<Visit> Visits { get; set; }
     public Guid UserId { get; set; }
 }

@@ -5,8 +5,10 @@ namespace URLShortener.Shared.Data;
 
 public interface IApplicationDbContext
 {
+    DbSet<User> Users { get; }
     DbSet<Link> Links { get; }
     DbSet<Visit> Visits { get; }
 
     Task SaveChangesAsync(CancellationToken cancellationToken = default);
+    void SaveChanges();
 }
