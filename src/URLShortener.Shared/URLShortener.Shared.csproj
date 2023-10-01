@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Services\" />
+        <Folder Include="Services\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\URLShortener.Domain\URLShortener.Domain.csproj" />
+        <ProjectReference Include="..\URLShortener.Domain\URLShortener.Domain.csproj"/>
     </ItemGroup>
 
 
