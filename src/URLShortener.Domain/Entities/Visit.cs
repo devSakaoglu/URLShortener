@@ -1,4 +1,4 @@
-namespace URLShortener.Shared.Entities;
+namespace URLShortener.Domain.Entities;
 
 public class Visit : BaseEntity<long>
 {
