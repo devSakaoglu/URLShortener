@@ -10,7 +10,7 @@ using URLShortener.Data.Contexts;
 
 namespace URLShortener.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDBContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20230930182759_initial")]
     partial class initial
     {
