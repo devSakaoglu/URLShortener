@@ -178,17 +178,14 @@ public class LinkServiceTests
        // Arrange
        var model = new GetByShortAddressModel
        {
-           UserId = DefaultUserId,
            ShortAddress = _defaultLinkModels.First().ShortAddress
        };
        var linkService = await SetupService();
 
        // Act
        var result = await linkService.GetByShortAddressAsync(model);
-
        // Assert
        Assert.NotNull(result);
-       Assert.Equal(model.UserId, result.UserId);
        Assert.Equal(_defaultLinkModels.First().ShortAddress, result.ShortAddress);
     }
 
