@@ -54,14 +54,18 @@ public class LinkService : ILinkService
 
     public async Task<ICollection<Link>> GetAllByUserIdAsync(Guid userId)
     {
-        var linkList = await _context.Links.Where(l => l.UserId == userId).ToListAsync();
+        var linkList = await _context.Links
+            .Where(l => l.UserId == userId)
+            .AsNoTracking()
+            .ToListAsync();
         return linkList;
     }
 
-    public async Task<Link> GetByIdAsync(GetByIdModel model, bool includeVisits = false)
+    public async Task<Link> GetByIdAsync(GetByIdModel model, bool includeVisits = false, bool asNoTracking = false)
     {
         var query = _context.Links.AsQueryable();
         if (includeVisits) query = query.Include(l => l.Visits);
+        if (asNoTracking) query.AsNoTracking(); 
 
         return await query
             .Where(l => l.UserId == model.UserId)
@@ -71,7 +75,7 @@ public class LinkService : ILinkService
     public async Task<Link> GetByShortAddressAsync(GetByShortAddressModel model)
     {
         var link = await _context.Links
-            .Where(l => l.UserId == model.UserId)
+            .AsNoTracking()
             .SingleAsync(l => l.ShortAddress == model.ShortAddress);
         return link;
     }

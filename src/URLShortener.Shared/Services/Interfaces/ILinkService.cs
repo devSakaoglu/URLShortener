@@ -10,7 +10,7 @@ public interface ILinkService
     Task<Link> UpdateFullAddressAsync(UpdateFullAddressModel model);
     Task<Link> SetEnabledAsync(SetEnabledModel model);
     Task<ICollection<Link>> GetAllByUserIdAsync(Guid userId);
-    Task<Link> GetByIdAsync(GetByIdModel model, bool includeVisits = false);
+    Task<Link> GetByIdAsync(GetByIdModel model, bool includeVisits = false, bool asNoTracking = false);
     Task<Link> GetByShortAddressAsync(GetByShortAddressModel model);
     Task DeleteAsync(DeleteModel model);
 }
