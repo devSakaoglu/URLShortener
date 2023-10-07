@@ -61,4 +61,10 @@ public class VisitService : IVisitService
        
        await _context.SaveChangesAsync();
     }
+
+    public async Task<bool> IsDeletedAsync(IsDeletedModel model)
+    {
+      var visit=  await _context.Visits.AsNoTracking().Where(v => v.LinkId == model.LinkId).SingleAsync(v => v.Id == model.Id);
+      return visit.IsDeleted;
+    }
 }

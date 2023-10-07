@@ -86,4 +86,9 @@ public class LinkService : ILinkService
         link.IsDeleted = true;
         await _context.SaveChangesAsync();
     }
+    public async Task<bool> IsDeletedAsync(IsDeletedModel model)
+    {
+        var link=  await _context.Links.AsNoTracking().Where(l => l.UserId == model.UserId).SingleAsync(l => l.Id == model.Id);
+        return link.IsDeleted;
+    }
 }
