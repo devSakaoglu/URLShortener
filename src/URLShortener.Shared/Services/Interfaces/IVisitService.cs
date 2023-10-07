@@ -10,6 +10,8 @@ public interface IVisitService
         
         public Task<Visit> CreateAsync(CreateVisitModel model);
         public Task UpdateGeoDataAsync(UpdateGeoDataModel model);
-        
+
+        public Task<bool> IsDeletedAsync(IsDeletedModel model);
+
 }
 

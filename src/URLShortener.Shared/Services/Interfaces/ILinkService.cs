@@ -13,4 +13,6 @@ public interface ILinkService
     Task<Link> GetByIdAsync(GetByIdModel model, bool includeVisits = false, bool asNoTracking = false);
     Task<Link> GetByShortAddressAsync(GetByShortAddressModel model);
     Task DeleteAsync(DeleteModel model);
+    public Task<bool> IsDeletedAsync(IsDeletedModel model);
+
 }
