@@ -5,7 +5,7 @@ namespace URLShortener.Shared.Data;
 
 public interface IApplicationDbContext
 {
-    DbSet<User> Users { get; }
+    DbSet<AppUser> AppUsers { get; }
     DbSet<Link> Links { get; }
     DbSet<Visit> Visits { get; }
 

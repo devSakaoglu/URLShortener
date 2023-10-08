@@ -65,7 +65,7 @@ public class LinkService : ILinkService
     {
         var query = _context.Links.AsQueryable();
         if (includeVisits) query = query.Include(l => l.Visits);
-        if (asNoTracking) query.AsNoTracking(); 
+        if (asNoTracking) query.AsNoTracking();
 
         return await query
             .Where(l => l.UserId == model.UserId)

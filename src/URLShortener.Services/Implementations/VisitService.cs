@@ -23,7 +23,7 @@ public class VisitService : IVisitService
             .SelectMany(s => s.Visits)
             .AsNoTracking()
             .ToListAsync();
-            
+
         return result;
     }
 
@@ -49,16 +49,16 @@ public class VisitService : IVisitService
             City = model.City
         };
         await _context.Visits.AddAsync(visit);
-        await _context.SaveChangesAsync();  
+        await _context.SaveChangesAsync();
         return visit;
     }
 
     public async Task UpdateGeoDataAsync(UpdateGeoDataModel model)
     {
-       var visit = await _context.Visits.SingleAsync(v => v.Id == model.VisitId);
-       visit.Country = model.Country;
-       visit.City = model.City;
-       
-       await _context.SaveChangesAsync();
+        var visit = await _context.Visits.SingleAsync(v => v.Id == model.VisitId);
+        visit.Country = model.Country;
+        visit.City = model.City;
+
+        await _context.SaveChangesAsync();
     }
 }
