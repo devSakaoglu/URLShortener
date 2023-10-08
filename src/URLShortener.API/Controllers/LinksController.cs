@@ -10,7 +10,7 @@ namespace URLShortener.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class LinksController : ControllerBase
+public class LinksController : BaseController
 {
     private readonly ILinkService _linkService;
 
@@ -23,8 +23,7 @@ public class LinksController : ControllerBase
     [UserType(UserType.User)]
     public async Task<ICollection<Link>> Get()
     {
-        var userClaim = Request.HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Sid).Value;
-        Guid.TryParse(userClaim, out var userId);
+        var userId = GetUserIdFromJwtClaim();
 
         return await _linkService.GetAllByUserIdAsync(userId);
     }
@@ -33,8 +32,7 @@ public class LinksController : ControllerBase
     [UserType(UserType.Super)]
     public async Task<Link> Get(long linkId)
     {
-        var userClaim = Request.HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Sid).Value;
-        Guid.TryParse(userClaim, out var userId);
+        var userId = GetUserIdFromJwtClaim();
 
         return await _linkService.GetByIdAsync(new GetByIdModel
         {
@@ -57,9 +55,7 @@ public class LinksController : ControllerBase
     [UserType(UserType.User)]
     public async Task<Link> Create([FromBody] CreateLinkModel model)
     {
-        var userClaim = Request.HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Sid).Value;
-        Guid.TryParse(userClaim, out var userId);
-        model.UserId = userId;
+        model.UserId = GetUserIdFromJwtClaim();
 
         return await _linkService.CreateAsync(model);
     }
@@ -68,9 +64,7 @@ public class LinksController : ControllerBase
     [UserType(UserType.PremiumUser)]
     public async Task<Link> UpdateShortAddress([FromBody] UpdateShortAddressModel model)
     {
-        var userClaim = Request.HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Sid).Value;
-        Guid.TryParse(userClaim, out var userId);
-        model.UserId = userId;
+        model.UserId = GetUserIdFromJwtClaim();
 
         return await _linkService.UpdateShortAddressAsync(model);
     }
@@ -79,9 +73,7 @@ public class LinksController : ControllerBase
     [UserType(UserType.PremiumUser)]
     public async Task<Link> UpdateFullAddress([FromBody] UpdateFullAddressModel model)
     {
-        var userClaim = Request.HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Sid).Value;
-        Guid.TryParse(userClaim, out var userId);
-        model.UserId = userId;
+        model.UserId = GetUserIdFromJwtClaim();
 
         return await _linkService.UpdateFullAddressAsync(model);
     }
@@ -90,9 +82,7 @@ public class LinksController : ControllerBase
     [UserType(UserType.User)]
     public async Task<Link> SetEnabled([FromBody] SetEnabledModel model)
     {
-        var userClaim = Request.HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Sid).Value;
-        Guid.TryParse(userClaim, out var userId);
-        model.UserId = userId;
+        model.UserId = GetUserIdFromJwtClaim();
 
         return await _linkService.SetEnabledAsync(model);
     }
@@ -101,8 +91,7 @@ public class LinksController : ControllerBase
     [UserType(UserType.User)]
     public async Task<bool> Delete(long linkId)
     {
-        var userClaim = Request.HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Sid).Value;
-        Guid.TryParse(userClaim, out var userId);
+        var userId = GetUserIdFromJwtClaim();
 
         await _linkService.DeleteAsync(new DeleteModel
         {
