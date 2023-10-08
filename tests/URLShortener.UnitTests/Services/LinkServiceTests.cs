@@ -40,7 +40,9 @@ public class LinkServiceTests
 
         await context.AddAsync(new AppUser
         {
-            Id = DefaultUserId
+            Id = DefaultUserId,
+            UserName = "default@example.com",
+            Email = "default@example.com",
         });
 
         await context.AddRangeAsync(_defaultLinkModels);

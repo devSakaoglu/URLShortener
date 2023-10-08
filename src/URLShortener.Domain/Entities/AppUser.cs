@@ -6,5 +6,5 @@ namespace URLShortener.Domain.Entities;
 public class AppUser : IdentityUser<Guid>
 {
     public List<Link> Links { get; set; }
-    public UserType UserType { get; set; }
+    public UserType UserType { get; set; } = UserType.User;
 }

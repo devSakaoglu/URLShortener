@@ -11,7 +11,7 @@ using URLShortener.Data.Contexts;
 namespace URLShortener.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231007163955_Initial")]
+    [Migration("20231008215612_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -160,6 +160,7 @@ namespace URLShortener.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
@@ -203,6 +204,9 @@ namespace URLShortener.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");

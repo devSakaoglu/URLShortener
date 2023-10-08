@@ -5,7 +5,8 @@ namespace URLShortener.API.Controllers;
 
 public class BaseController : ControllerBase
 {
-    public Guid GetUserIdFromJwtClaim()
+    [NonAction]
+    protected Guid GetUserIdFromJwtClaim()
     {
         var userClaim = Request.HttpContext.User.Claims.SingleOrDefault(c => c.Type == JwtRegisteredClaimNames.Sid)?.Value;
         var result = Guid.TryParse(userClaim, out var userId);
