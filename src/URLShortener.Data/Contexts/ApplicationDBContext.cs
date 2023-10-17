@@ -21,8 +21,12 @@ public class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRole<Guid
         builder.Entity<AppUser>(entity =>
         {
             entity.ToTable("AppUsers");
-
             entity.HasKey(u => u.Id);
+            entity.Property(u => u.Email)
+                .IsRequired();
+
+            entity.HasIndex(u => u.Email)
+                .IsUnique();
         });
 
         builder.Entity<Link>(entity =>
